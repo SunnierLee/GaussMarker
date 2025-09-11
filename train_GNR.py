@@ -54,12 +54,12 @@ class LatentDataset_m(IterableDataset):
             # latents_m = latents_m[:, :1, ...]
             # false_latents_m = false_latents_m[:, :1, ...]
             if np.random.rand() > self.args.neg_p:
-                aug_latents_m, params = Affine_random(latents_m.float(), self.args.r, self.args.t, self.args.s_min, args.s_max, self.args.sh)
-                aug_latents_m = flip_tensor(aug_latents_m, args.fp)
+                aug_latents_m, params = Affine_random(latents_m.float(), self.args.r, self.args.t, self.args.s_min, self.args.s_max, self.args.sh)
+                aug_latents_m = flip_tensor(aug_latents_m, self.args.fp)
                 yield aug_latents_m.squeeze(0).float(), latents_m.squeeze(0).float()
             else:
-                aug_false_latents_m, params = Affine_random(false_latents_m.float(), self.args.r, self.args.t, self.args.s_min, args.s_max, self.args.sh)
-                aug_false_latents_m = flip_tensor(aug_false_latents_m, args.fp)
+                aug_false_latents_m, params = Affine_random(false_latents_m.float(), self.args.r, self.args.t, self.args.s_min, self.args.s_max, self.args.sh)
+                aug_false_latents_m = flip_tensor(aug_false_latents_m, self.args.fp)
                 yield aug_false_latents_m.squeeze(0).float(), aug_false_latents_m.squeeze(0).float()
 
 
