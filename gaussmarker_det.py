@@ -389,7 +389,7 @@ if __name__ == '__main__':
     parser.add_argument('--w_channel', default=3, type=int)
     parser.add_argument('--w_pattern', default='ring')
     parser.add_argument('--w_mask_shape', default='circle')
-    parser.add_argument('--w_radius', default=10, type=int)
+    parser.add_argument('--w_radius', default=4, type=int)
     parser.add_argument('--w_measurement', default='l1_complex')
     parser.add_argument('--w_injection', default='complex')
     parser.add_argument('--w_pattern_const', default=0, type=float)
